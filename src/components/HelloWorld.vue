@@ -25,8 +25,16 @@ const sayHello = (msg) =>{
   alert(msg);
 }
 const url ='https://www.google.co.kr/';
-const attributeName ="hr"
+const attributeName ="href"
+const items = [
+  {id:0, title:'html'},
+  {id:1, title:'css'},
+  {id:2, title:'javascript'}
+];
 
+const onSubmit = () =>{
+  alert('제출되었습니다.');
+}
 </script>
 
 <template>
@@ -54,12 +62,26 @@ const attributeName ="hr"
     {{ message.split('').reverse().join('') }}
     <div :id="`list-${id}`"></div>
     <h2>함수 호출</h2>
-    <span :title="sayHello('안녕')"></span>
+    <!--span :title="sayHello('안녕')"></span-->
     <h2>디렉티브</h2>
     <a v-bind:href="url">구글</a>
     <a :href="url">구글</a>
     <a v-bind:[attributeName]="url"> ... </a>
+    <div v-for="item in items" :key="item.id">
+    {{ item.title }}
+    </div>
+    <h2>v-on</h2>
+    <div>
+      <button type="button" v-on:click="sayHello('안녕!')">안녕</button>
+      <button type="button" @click="sayHello('안녕!')">안녕</button>
+      <button type="button" @mouseover="sayHello('안녕!')">안녕</button>
+    </div>
+    <form action="" @submit.prevent="onSubmit">
+    <button>제출</button>
+  </form>
 
+
+  
   </div>
 </template>
 
