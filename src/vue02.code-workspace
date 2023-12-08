@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"name": "vue_js_study",
+			"path": "../../vue_js_study"
+		},
+		{
+			"name": "vue_ex",
+			"path": "../../vue_ex"
+		}
+	],
+	"settings": {}
+}
