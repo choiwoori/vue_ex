@@ -1,5 +1,5 @@
 <script setup>
-import { ref,nextTick, reactive } from 'vue'
+import { ref, nextTick, reactive } from 'vue'
 
 const count = ref(0)
 console.log(count);
