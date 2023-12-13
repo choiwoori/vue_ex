@@ -17,6 +17,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/reactivity">Reactivity</RouterLink>
         <RouterLink to="/computed">Computed</RouterLink>
         <RouterLink to="/conditional">Conditional Renderin</RouterLink>
+        <RouterLink to="/list">List Rendering</RouterLink>
       </nav>
     </div>
   </header>
@@ -85,5 +86,11 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
+}
+
+.layout{
+  padding: 20px;
+  border-top: 2px solid #ccc;
+  margin-top: 40px;
 }
 </style>

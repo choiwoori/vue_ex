@@ -9,14 +9,11 @@ export default{
       page:true
     }
   }
-
 }
-
-
 </script>
 
 <template>
-  <div class="about">
+  <div class="layout">
     <h1>This is an Conditional Renderin page</h1>
     <button @click="awesome = !awesome">전환</button>
     <h2 v-if="awesome">Vue는 정말 멋지죠!</h2>
