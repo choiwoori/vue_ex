@@ -18,6 +18,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/computed">Computed</RouterLink>
         <RouterLink to="/conditional">Conditional Renderin</RouterLink>
         <RouterLink to="/list">List Rendering</RouterLink>
+        <RouterLink to="/event">Event Handling</RouterLink>
       </nav>
     </div>
   </header>
