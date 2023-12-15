@@ -19,6 +19,7 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/conditional">Conditional Renderin</RouterLink>
         <RouterLink to="/list">List Rendering</RouterLink>
         <RouterLink to="/event">Event Handling</RouterLink>
+        <RouterLink to="/form">Form Input Bindings</RouterLink>
       </nav>
     </div>
   </header>

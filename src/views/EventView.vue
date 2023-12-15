@@ -24,7 +24,34 @@ export default{
         event.preventDefault()
       }
       alert(message)
+    },
+    doThis(){
+      //.stop
+      alert('링크 전파');
+    },
+    onSubmit(){
+      //.onSubmit
+      alert('폼 제출 차단');
+    },
+    doThat(){
+      //.stop.prevent
+      alert('기본속성차단 하고, 링크 전차 차단');
+    },
+    boxClick(){
+      //.stop.prevent
+      alert('boxClick');
+    },
+    spanClick(){
+      //.stop.prevent
+      alert('spanClick');
+    },
+    submit(){
+      alert('enter키가 입력되었습니다.');
+    },
+    onPageDown(){
+      alert('onPageDown키가 입력되었습니다.');
     }
+
   }
 }
 
@@ -55,6 +82,41 @@ export default{
     <!-- 인라인 화살표 함수 사용 -->
     <button @click="(event) => warn('아직 양식을 제출할 수 없습니다.', event)">제출하기</button>
 
+    <h2>이벤트수식어</h2>
+    <!--
+      event.preventDefault() 그 기본 기능 차단, 상위 요소들로 이벤트 전달->해당 요소에의 기본기능만 차단, 부모에는 이벤트가 전달
+      event.stopPropagation() 상위 요소들로의 이벤트 중단->부모로 전달되는 이벤트만 차단
+    -->
+
+    <!-- 클릭 이벤트 부모에게 전파가 중지됩니다. -->
+    <a @click.stop="doThis" href="http://www.naver.com" target="_blank">doThis</a>
+
+    <!-- submit 이벤트가 더 이상 페이지 리로드하지 않습니다. -->
+    <form @submit.prevent="onSubmit" action="http://www.naver.com">
+      <button>제출</button>
+    </form>
+
+    <!-- 수식어를 연결할 수 있습니다. -->
+    <a @click.stop.prevent="doThat" href="http://www.naver.com" target="_blank">doThat</a>
+
+    <!-- 이벤트에 핸들러 없이 수식어만 사용할 수 있습니다. -->
+    <form @submit.prevent action="http://www.naver.com">
+      <button>제출</button>
+    </form>
+
+    <!-- event.target이 엘리먼트 자신일 경우에만 핸들러가 실행됩니다. -->
+    <!-- 예를 들어 자식 엘리먼트에서 클릭 액션이 있으면 핸들러가 실행되지 않습니다. -->
+    <div @click="boxClick" class="box">
+      <span @click="spanClick" class="box">클릭</span>
+    </div>
+    <div @click.self="boxClick" class="box">
+      <span @click.self="spanClick" class="box">클릭</span>
+    </div>
+
+    <h2>입력키 수식어</h2>
+    <!-- `key`가 `Enter`일 때만 `submit`을 호출합니다 -->
+    <input @keyup.enter="submit" />
+    <input @keyup.page-down="onPageDown" />
 
 
 
@@ -62,6 +124,11 @@ export default{
 </template>
 
 <style>
+.box{
+  border: 1px solid;
+  padding: 20px;
+  display: inline-block;
+}
 @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
